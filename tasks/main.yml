@@ -1,0 +1,10 @@
+---
+# Load vars and tasks based on distro
+- include: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: "Ensure docker engine is started" 
+  service:
+    name: docker
+    state: started
+    enabled: yes
